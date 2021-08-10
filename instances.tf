@@ -25,4 +25,3 @@ resource "openstack_compute_instance_v2" "instance_1" {
   #     delete_on_termination = true
   # }
 }
-
