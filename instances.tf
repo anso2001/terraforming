@@ -9,10 +9,7 @@ resource "openstack_compute_instance_v2" "instance_1" {
   security_groups   = ["default","${openstack_compute_secgroup_v2.secgroup_1.name}"]
   # region           = ""
 
-  network { # later: create a new network
-      # name        = "testnet"
-      # ^ can also use network UUID and/or port UUID
-      # fixed_ip_v4 = "10.0.1.40"
+  network {
       port = "${openstack_networking_port_v2.port_1.id}"
   }
 
