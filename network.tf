@@ -47,29 +47,14 @@ resource "openstack_networking_router_interface_v2" "router_interface_1" {
 
 # Allocate Floating IP
 resource "openstack_compute_floatingip_v2" "floatip_1" {
-  pool = "elx-public1"
+  pool      = "elx-public1"
 }
 
-# NOT WORKING
-#+ "floatip_1 not declared"
+# NOT WORKING with floatip_1:
+#+ "floatip_1" has not been declared in the root module
+#+ temp workaround in place
 # Associate Floating IP
-# resource "openstack_networking_floatingip_associate_v2" "fip_1" {
-#   floating_ip = "${openstack_networking_floatingip_v2.floatip_1.address}"
-#   port_id     = "${openstack_networking_port_v2.port_1.id}"
-# }
-
-# NOT WORKING
-# Firewall rule(s)
-# resource "openstack_fw_rule_v1" "fw_rule_1" {
-#   name             = "rule_telnet_drop"
-#   description      = "drop TELNET traffic"
-#   action           = "deny"
-#   protocol         = "tcp"
-#   destination_port = "23"
-#   enabled          = "true"
-# }
-
-# resource "openstack_fw_policy_v1" "policy_1" {
-#   name = "my-policy"
-#   rules = ["${openstack_fw_rule_v1.fw_rule_1.id}"]
-# }
+resource "openstack_networking_floatingip_associate_v2" "fip_1" {
+  floating_ip = "212.237.150.36" #"${openstack_networking_floatingip_v2.floatip_1.address}"
+  port_id     = "${openstack_networking_port_v2.port_1.id}"
+}
