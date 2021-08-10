@@ -8,6 +8,8 @@ resource "openstack_compute_instance_v2" "instance_1" {
   key_pair          = "micke"
   #security_groups   = ["default","${openstack_compute_secgroup_v2.secgroup_1.name}"]
   # region           = ""
+  # count            = 
+
 
   network {
       port = "${openstack_networking_port_v2.port_1.id}"

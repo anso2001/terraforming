@@ -46,15 +46,15 @@ resource "openstack_networking_router_interface_v2" "router_interface_1" {
 }
 
 # Allocate Floating IP
-resource "openstack_compute_floatingip_v2" "floatip_1" {
+resource "openstack_networking_floatingip_v2" "floatip_1" {
   pool      = "elx-public1"
 }
 
 # NOT WORKING with floatip_1:
 #+ "floatip_1" has not been declared in the root module
-#+ temp workaround in place
+#+ very much temp workaround in place
 # Associate Floating IP
 resource "openstack_networking_floatingip_associate_v2" "fip_1" {
-  floating_ip = "212.237.150.36" #"${openstack_networking_floatingip_v2.floatip_1.address}"
+  floating_ip = "${openstack_networking_floatingip_v2.floatip_1.address}"
   port_id     = "${openstack_networking_port_v2.port_1.id}"
 }
