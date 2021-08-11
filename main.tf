@@ -101,7 +101,7 @@ resource "openstack_networking_router_interface_v2" "router_interface_1" {
 
 # Allocate Floating IP
 resource "openstack_networking_floatingip_v2" "floatip_1" {
-  pool      = var.fip_pool
+  pool = var.fip_pool
 }
 
 # Associate Floating IP
