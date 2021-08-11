@@ -60,7 +60,7 @@ resource "openstack_networking_network_v2" "network_1" {
 resource "openstack_networking_subnet_v2" "subnet_1" {
   name       = "tf_subnet_1"
   network_id = "${openstack_networking_network_v2.network_1.id}"
-  cidr       = "192.168.199.0/24"
+  cidr       = "192.168.199.0/24" # replace with var
   ip_version = 4
 }
 
@@ -86,7 +86,7 @@ resource "openstack_networking_port_v2" "port_1" {
 
   fixed_ip {
     subnet_id  = "${openstack_networking_subnet_v2.subnet_1.id}"
-    ip_address = "192.168.199.10"
+    ip_address = "192.168.199.10" # replace with var
   }
 }
 
@@ -99,7 +99,7 @@ resource "openstack_networking_router_interface_v2" "router_interface_1" {
 
 # Allocate Floating IP
 resource "openstack_networking_floatingip_v2" "floatip_1" {
-  pool      = "elx-public1"
+  pool      = "elx-public1" # replace with var
 }
 
 # Associate Floating IP
