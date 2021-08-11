@@ -8,12 +8,12 @@ variable "instance_name" {
 
 variable "image_id" { # use name instead?
   type    = string
-  default = "aa97b237-095a-4edf-8ddd-4a18d3c6a8d4"
+  default = "aa97b237-095a-4edf-8ddd-4a18d3c6a8d4" # ubuntu-20.04-server-latest
 }
 
 variable "flavor_id" { # use name instead?
   type    = string
-  default = "7a6a998f-ac7f-4fb8-a534-2175b254f75e"
+  default = "7a6a998f-ac7f-4fb8-a534-2175b254f75e" # v1-mini-1
 }
 
 variable "key_name" {
