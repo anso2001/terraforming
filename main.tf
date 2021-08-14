@@ -20,7 +20,7 @@ provider "openstack" {
   #region      = "" # use $OS_REGION_NAME
 }
 
-## INSTANCES
+## INSTANCE(S)
 # Create an instance
 resource "openstack_compute_instance_v2" "instance_1" {
   name              = var.instance_name
