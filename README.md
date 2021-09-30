@@ -10,6 +10,15 @@ To find your router id:
 openstack router list
 ```
 
+Change the key_name in `variables.tf` to your own keypair.
+
+
+To find your your keypairs:
+
+```shell
+openstack keypair list
+```
+
 ## Running
 
 If you're running this for the first time:
