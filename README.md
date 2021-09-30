@@ -19,6 +19,12 @@ To find your your keypairs:
 openstack keypair list
 ```
 
+Set your credentials in `main.tf` or use your OpenStack RC file and have it use env variables:
+
+```shell
+source username-openrc.sh
+```
+
 ## Running
 
 If you're running this for the first time:
